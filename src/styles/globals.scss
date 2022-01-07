@@ -1,0 +1,52 @@
+@import "./variables.scss";
+
+html {
+  background-color: #525050;
+}
+
+.rvtr-btn-primary {
+  color: white;
+  background-color: $primary;
+  font-weight: bolder;
+}
+
+.rvtr-btn-secondary {
+  color: white;
+  background-color: $secondary;
+  font-weight: 500;
+
+  &:hover {
+    color: white; // overrides bootstrap changing text color
+  }
+}
+
+.cards {
+  display: flex;
+  align-items: flex-start;
+}
+.card {
+  // left: 0;
+  // top: 0;
+  color: #282c34;
+  font-size: 14pt;
+  text-align: left;
+  min-height: 70vh;
+  flex: 1;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  // justify-content: center;
+}
+.btn {
+  align-items: bottom;
+  background-color: $secondary;
+  color: white;
+}
+
+.navbar-expand-lg {
+  background-color: $primary;
+  color: white;
+}
