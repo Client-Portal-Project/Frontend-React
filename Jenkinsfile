@@ -14,10 +14,6 @@ pipeline {
         nodejs "node"
     }
   
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('clientportalx-dockerhub')
-    }
-  
     stages {
         stage('Static Analysis') {
             environment {
@@ -85,14 +81,19 @@ pipeline {
             script {
                 CMD = CMD.split(' > ')[0].trim()
             }
-            sh 'docker logout'
         }
         failure {
             discordSend title: "**:boom: ${env.JOB_NAME} Failure in ${CURR} Stage**",
                         description: "*${CMD}*\n\n${ERR}",
                         footer: "Follow title URL for full console output",
                         link: env.BUILD_URL + "console", image: 'https://jenkins.io/images/logos/fire/256.png',
-                        result: currentBuild.currentResult, webhookURL: WEBHO_JA
+                        result: currentBuild.currentResult, webhookURL: WEBHO_NET
+
+            discordSend title: ":mag: SonarCloud Analysis React",
+                        footer: "Follow title URL for SonarCloud Analysis",
+                        link: "https://sonarcloud.io/project/overview?id=Frontend-React",
+                        result: currentBuild.currentResult,
+                        webhookURL: WEBHO_NET
         }
         success {
             cleanWs()
