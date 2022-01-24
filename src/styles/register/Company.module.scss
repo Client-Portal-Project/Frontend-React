@@ -23,6 +23,13 @@
     margin-left: 40%;
     margin-bottom: auto;
 }
+.registeritem25
+{
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+
 .registeritem2
 {
     margin-top: 3%;
@@ -35,7 +42,7 @@
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 5fr 5fr 5fr 5fr, 5fr;
+    grid-template-rows: 5fr 5fr 5fr 5fr 5fr 5fr;
 }
 
 .registeritem3

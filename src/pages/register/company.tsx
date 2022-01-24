@@ -17,19 +17,126 @@ const Company : NextPage = () => {
     const [password, setPassword] = useState("");
     const [pageError, setPageError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [file, setFile] = useState<Blob>();
+    const [messages, setMessages]= useState<string[]>([]);
 
     const register = (e:any) =>
     {
-      
-      axios.post("http://localhost:8000/clientportal/api/register", {
+      var hasErrors = false;
+      setMessages([]);
 
+      if (companyName.length === 0)
+      {
+        messages.push("Company Name")
+        hasErrors = true;
+      }
+      if (email.length === 0)
+      {
+        messages.push("E-mail")
+        hasErrors = true;
+      }
+      if (firstname.length == 0)
+      {
+        messages.push("Firstname")
+        hasErrors = true;
+      }
+      if (lastname.length === 0) 
+      {
+        messages.push("Lastname")
+        hasErrors = true;
+      } 
+      if (password.length == 0)
+      {
+        messages.push("password")
+        hasErrors = true;
+      }   
+      if (hasErrors)
+      {
+          showError("Errors the field(s) is/are required: " + messages.join());
+      } else {
+        let blob = new Blob(['hello'], {'type':'text/plan'})
+
+        let fileReader = new FileReader();
+
+        fileReader.readAsArrayBuffer(blob);
+        fileReader.onload = function(event) {
+          let arrayBuffer = fileReader.result;
+        }     
+
+        var u8 = new Uint8Array([65, 66, 67, 68]);
+        var decoder = new TextDecoder('utf8');
+        var b64encoded = btoa(decoder.decode(u8));
+
+        console.log(b64encoded)
+
+      axios.post("http://localhost:5000/api/Client", 
+      {
+          "clientId": 0, 
+          "companyName": companyName,
+          "needs":[ null ],
+          "clientUsers": [
+            {
+              "clientUserId": 0,
+              "userID": 0,
+              "clientID": 0,
+              "user": {
+                "userId": 0,
+                "email": email,
+                "password": password,
+                "approved": true,
+                "owner": {
+                  "ownerId": 0,
+                  "userId": 0,
+                  "applications":
+                  [ null ]
+                },
+                "applicant":
+                {
+                  "applicantId":0,
+                  "resume":decoder,
+                  "aboutMe":"string",
+                  "educationLevel":"string",
+                  "educationField":"string",
+                  "employmentStatus":"string",
+                  "applicantSkills":
+                  [
+                    {
+                      "applicantSkillId":0,
+                      "applicantId":0,
+                      "skillId":0
+                    }
+                  
+                  ],
+                  "userId":0,
+                  "applicantOccupations":[
+                    null
+                  ]  
+                },
+                "firstName": firstname,
+                "lastName": lastname,
+
+              },
+            },
+          ]
+      },
+      {
+          headers:
+          {
+              'Content-Type': 'application/json'
+          }
       })
       .then((response) => {
 
-      }, (error) => {
+        if (response.status == 400)
+        {
+        } else {
+
+        }
+      }, (error ) => {
+        console.log(error);
         showError("Server error. Please contract the administrator.");       
       })
-
+      }
     }
 
     const showError = (errorMsg:string) =>
@@ -103,20 +210,22 @@ const Company : NextPage = () => {
                         <h3>Company User Registration</h3>
                     </div>
                     <div className={companyStyles.registeritem2}>
-                        <div className={["alert","alert-danger", pageError ? companyStyles.alertBox : companyStyles.noAlertBox].join(" ")} role="alert">
+                    <div className={companyStyles.registeritem25}>
+                      <div className={["alert","alert-danger", pageError ? companyStyles.alertBox : companyStyles.noAlertBox].join(" ")} role="alert">
                           { errorMessage }
-                        </div>
+                      </div>
+                    </div>
                         <div className={companyStyles.form}>
                             <div><b>Company Name:</b></div>
-                            <div><input type="text" onChange={onCompanyNameChange} /></div>
+                            <div><input type="text" onChange={onCompanyNameChange} value={companyName} /></div>
                             <div><b>E-Mail:</b></div>
-                            <div><input type="text" onChange={onEmailChange}/></div>
+                            <div><input type="text" onChange={onEmailChange} value={email}/></div>
                             <div><b>Firstname:</b></div>
-                            <div><input type="text" onChange={onFirstNameChange}/></div>
+                            <div><input type="text" onChange={onFirstNameChange} value={firstname}/></div>
                             <div><b>Lastname:</b></div>
-                            <div><input type="text" onChange={onLastNameChange} /></div>
+                            <div><input type="text" onChange={onLastNameChange} value={lastname}/></div>
                             <div><b>Password:</b></div>
-                            <div><input type="password" onChange={onPasswordChange} /></div>
+                            <div><input type="password" onChange={onPasswordChange} value={password}/></div>
                         </div>
                     </div>
                     <div className={companyStyles.registerItem3}>
