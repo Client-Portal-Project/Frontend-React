@@ -1,14 +1,12 @@
 import { NextPage } from "next";
-import AboutUs from "../../components/aboutus/AboutUsComp";
+import AboutUsComp from "../../components/aboutus/AboutUsComp";
 
-import orderFormStyles from "../../styles/orders/OrderForm.module.scss";
-
-const OrderCoursePage: NextPage = () => {
+const AboutUs: NextPage = () => {
   return (
     <div className="order-form-container">
-      <AboutUs />
+      <AboutUsComp />
     </div>
   );
 };
 
-export default OrderCoursePage;
+export default AboutUs
