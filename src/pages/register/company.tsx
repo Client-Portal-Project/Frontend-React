@@ -93,7 +93,7 @@ const Company : NextPage = () => {
                 "applicant":
                 {
                   "applicantId":0,
-                  "resume":decoder,
+                  "resume":[ null ],
                   "aboutMe":"string",
                   "educationLevel":"string",
                   "educationField":"string",
