@@ -6,7 +6,7 @@ const OrderCoursePage: NextPage = () => {
     <div className="order-form-container">
       <EmployeeInformation />
     </div>
-  );
+  ) ;
 };
 
 export default OrderCoursePage;
