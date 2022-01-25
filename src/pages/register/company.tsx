@@ -20,15 +20,7 @@ const Company : NextPage = () => {
     const register = (e:any) =>
     {
       
-      axios.post("http://localhost:8000/clientportal/api/register", {
-
-      })
-      .then((response) => {
-
-      }, (error) => {
-        showError("Server error. Please contract the administrator.");       
-      })
-
+      
     }
 
     const showError = (errorMsg:string) =>

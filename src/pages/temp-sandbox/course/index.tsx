@@ -13,7 +13,6 @@ const CourseListPage: NextPage = () => {
     GetCourseList()
       // then, once the data is received, set that data to the `courses` state
       .then((data) => setCourses(data))
-      // TODO: if something fails, implement a user friendly way to notify an error here in the `catch`
       .catch((e) =>
         console.error(
           "An error has occured fetching data from the /Course endpoint"

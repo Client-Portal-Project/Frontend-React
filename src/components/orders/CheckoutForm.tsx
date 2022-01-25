@@ -13,8 +13,6 @@ import React, {
 import styles from "../../styles/orders/CheckoutForm.module.scss";
 
 interface CheckoutFormProps {
-  /** This will be used to calculate a total sum for stripe on the .NET backend.
-   * TODO: **DO NOT** use this method for production, handling pricing and cart items should be handled on the backend. */
   numCourses: number;
 }
 
@@ -37,7 +35,6 @@ const CheckoutForm: React.FunctionComponent<CheckoutFormProps> = ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // TODO: change this approach when the cart system is implemented
         coursesToBuy: Array(numCourses).fill({ id: "course" }), // temp solution, send this array of n items for the backend to calculate the price
         price: 2599,
       }), // * change price here, 1 unit = 1 cent

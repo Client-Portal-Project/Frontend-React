@@ -5,7 +5,6 @@ import Link from "next/link";
 import styles from "../../styles/pages/Home.module.scss";
 import loginStyles from "../../styles/login/Login.module.scss";
 import axios from "axios";
-import { useRouter } from "next/router";
 
 const Login: NextPage = () => {
 
@@ -14,8 +13,7 @@ const Login: NextPage = () => {
   const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [disableButton, setDisableButton] = useState(false);
-  const router  = useRouter();
-
+ 
 
   const onUsernameChange = (e:React.ChangeEvent<HTMLInputElement>) => 
   {
