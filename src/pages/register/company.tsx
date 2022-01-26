@@ -4,7 +4,6 @@ import Head from "next/head";
 import Link from "next/Link";
 import styles from "../../styles/pages/Home.module.scss";
 import companyStyles from "../../styles/register/Company.module.scss";
-import axios from "axios";
 
 
 const Company : NextPage = () => {
