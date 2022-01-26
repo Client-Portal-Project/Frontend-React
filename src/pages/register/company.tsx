@@ -19,21 +19,6 @@ const Company : NextPage = () => {
     const register = (e:any) =>
     {
       
-      
-    }
-
-    const showError = (errorMsg:string) =>
-    {
-      if (pageError != true)
-      {
-        setPageError(true);
-        setErrorMessage(errorMsg);
-        let errorTimer = setInterval(() => {
-          setPageError(false);
-          setErrorMessage("");
-          clearInterval(errorTimer);
-        }, 5000)
-      }
     }
 
     const onCompanyNameChange = (e:React.ChangeEvent<HTMLInputElement>) =>
