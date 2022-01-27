@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import Script from "next/script";
 import Layout from "../components/UI/layout/Layout";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function _App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Layout>
@@ -19,4 +19,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
-export default MyApp;
+export default _App;
