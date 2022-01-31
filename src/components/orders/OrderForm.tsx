@@ -45,12 +45,6 @@ const OrderForm: FunctionComponent = () => {
   };
 
   const onSubmit = (e: React.MouseEvent) => {
-    // TODO: setup logic to validate and submit data for purchase
-    // alert(
-    //   `Course details: \nTech => ${formData.technology} \nInstructor => ${formData.instructor} \nAssociates => ${formData.associates}`
-    // );
-
-    // TODO: on commit, reveal payment form
     if (!userConfirmedCommit && teamListData.length > 0)
       setUserConfirmCommit(true);
   };
@@ -81,7 +75,7 @@ const OrderForm: FunctionComponent = () => {
                     value={formData.technology}
                     onChange={handleChange}
                   >
-                    {/* TODO: fetch technologies from backend */}
+                    {}
                     <option value="">--Select A Category--</option>
                     <option value="net">.NET</option>
                     <option value="java">Java</option>

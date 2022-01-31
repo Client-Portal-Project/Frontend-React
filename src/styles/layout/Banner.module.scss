@@ -12,7 +12,6 @@
   }
    
   /* (B) MOVING TICKER WRAPPER */
-  .hmove { display: flex; }
   
   /* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
   .hitem {
@@ -29,6 +28,6 @@
     0% { transform: translate3d(100%, 0, 0); }
     100% { transform: translate3d(-90%, 0, 0); }
   }
-  .hmove { animation: tickerh linear 30s infinite; }
+  .hmove { display: flex; animation: tickerh linear 30s infinite; }
   .hmove:hover { animation-play-state: paused; }
   
