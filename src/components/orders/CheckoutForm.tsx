@@ -3,12 +3,9 @@ import {
   StripeCardElement,
   StripeCardElementChangeEvent,
   StripeCardElementOptions,
-  StripeElementChangeEvent,
 } from "@stripe/stripe-js";
 import React, {
-  ChangeEvent,
   FormEvent,
-  FormEventHandler,
   useEffect,
   useState,
 } from "react";
@@ -16,8 +13,6 @@ import React, {
 import styles from "../../styles/orders/CheckoutForm.module.scss";
 
 interface CheckoutFormProps {
-  /** This will be used to calculate a total sum for stripe on the .NET backend.
-   * TODO: **DO NOT** use this method for production, handling pricing and cart items should be handled on the backend. */
   numCourses: number;
 }
 
@@ -40,7 +35,6 @@ const CheckoutForm: React.FunctionComponent<CheckoutFormProps> = ({
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // TODO: change this approach when the cart system is implemented
         coursesToBuy: Array(numCourses).fill({ id: "course" }), // temp solution, send this array of n items for the backend to calculate the price
         price: 2599,
       }), // * change price here, 1 unit = 1 cent
@@ -79,22 +73,28 @@ const CheckoutForm: React.FunctionComponent<CheckoutFormProps> = ({
   const handleSubmit = async (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     setProcessing(true);
-    const payload = await stripe!.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements!.getElement(CardElement) as StripeCardElement,
-      },
-    });
-
-    if (payload.error) {
-      // If Stripe determines there was an issue processing a users card
-      // this error should run
-      setError(`Payment failed ${payload.error.message}`);
-      setProcessing(false);
-    } else {
-      // payment succeeded, set states accordingly 💳✅
-      setError(null);
-      setProcessing(false);
-      setSucceeded(true);
+    if (elements)
+    {
+      if (stripe)
+      {
+         const payload = await stripe.confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: elements.getElement(CardElement) as StripeCardElement,
+          },
+        });
+    
+        if (payload.error) {
+          // If Stripe determines there was an issue processing a users card
+          // this error should run
+          setError(`Payment failed ${payload.error.message}`);
+          setProcessing(false);
+        } else {
+         // payment succeeded, set states accordingly 💳✅
+         setError(null);
+         setProcessing(false);
+         setSucceeded(true);
+        }
+      }
     }
   };
 

@@ -2,21 +2,18 @@ import { useState } from "react"
 import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../../styles/pages/Home.module.scss";
 import loginStyles from "../../styles/login/Login.module.scss";
 import axios from "axios";
-import { useRouter } from "next/router";
 
-const LoginPage: NextPage = () => {
+const Login: NextPage = () => {
 
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [disableButton, setDisableButton] = useState(false);
-  const router  = useRouter();
-
+ 
 
   const onUsernameChange = (e:React.ChangeEvent<HTMLInputElement>) => 
   {
@@ -29,7 +26,7 @@ const LoginPage: NextPage = () => {
   }
 
   const onError = () => {
-    if (error == false)
+    if (error != true)
     {
       setError(true);
 
@@ -141,4 +138,4 @@ const LoginPage: NextPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;

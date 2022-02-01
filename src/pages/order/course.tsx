@@ -1,9 +1,8 @@
 import { NextPage } from "next";
 import OrderForm from "../../components/orders/OrderForm";
 
-import orderFormStyles from "../../styles/orders/OrderForm.module.scss";
 
-const OrderCoursePage: NextPage = () => {
+const course: NextPage = () => {
   return (
     <div className="order-form-container">
       <OrderForm />
@@ -11,4 +10,4 @@ const OrderCoursePage: NextPage = () => {
   );
 };
 
-export default OrderCoursePage;
+export default course;

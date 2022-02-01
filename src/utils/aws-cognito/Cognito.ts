@@ -3,7 +3,7 @@ import {CognitoUser, CognitoUserAttribute, CognitoUserPool, CognitoUserSession, 
 const userPool = new CognitoUserPool({
 
     UserPoolId: "",
-    ClientId: "",// TODO
+    ClientId: "",
 
 });
 
@@ -46,7 +46,6 @@ function createUserAttributeList(email: string, /*firstName: string, lastName: s
     profile: string*/){
 
         return [
-            //TODO Not deleting these yet, they legitimately be needed still
             newUserAttribute(UserAttributeNames.email, email),
             //newUserAttribute(UserAttributeNames.firstName, firstName),
             //newUserAttribute(UserAttributeNames.lastName, lastName),
@@ -161,7 +160,7 @@ export default class Login{
                 onSuccess: (session: CognitoUserSession) => {
 
                     if(remember)
-                        console.warn("Login storage unimplemented.");//TODO
+                        console.warn("Login storage unimplemented.");
 
                     this.currentUser = user;
                     resolve(user);
@@ -200,15 +199,7 @@ export default class Login{
         if(this.currentUser && this.currentUser.getSignInUserSession()?.isValid())
             return Promise.resolve(this.currentUser);
 
-        /*if(loginWasStored)
-            return new Promise((resolve, reject) => {
 
-                if(storeLoginValid)
-                    resolve(storedLogin);
-
-                reject(new NotLoggedInError("Stored login was expired or otherwise invalid."));
-
-            });*/
 
         return Promise.reject(new NotLoggedInError("No stored login.", retryFunc || (() => Promise.resolve(undefined))));
 
@@ -225,11 +216,7 @@ export default class Login{
 
         const user: CognitoUser = await this.getLoggedInUser(this.getUserName);
 
-        return new Promise((resolve, reject) => {
-
-            resolve(user.getUsername());
-        
-        });
+        return Promise.resolve(user.getUsername());
 
     }
 

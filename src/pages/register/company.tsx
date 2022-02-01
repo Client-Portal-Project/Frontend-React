@@ -4,8 +4,6 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/pages/Home.module.scss";
 import companyStyles from "../../styles/register/Company.module.scss";
-import Register from "./register";
-import axios from "axios";
 
 
 const Company : NextPage = () => {
@@ -21,29 +19,6 @@ const Company : NextPage = () => {
     const register = (e:any) =>
     {
       
-      axios.post("http://localhost:8000/clientportal/api/register", {
-
-      })
-      .then((response) => {
-
-      }, (error) => {
-        showError("Server error. Please contract the administrator.");       
-      })
-
-    }
-
-    const showError = (errorMsg:string) =>
-    {
-      if (pageError == false)
-      {
-        setPageError(true);
-        setErrorMessage(errorMsg);
-        let errorTimer = setInterval(() => {
-          setPageError(false);
-          setErrorMessage("");
-          clearInterval(errorTimer);
-        }, 5000)
-      }
     }
 
     const onCompanyNameChange = (e:React.ChangeEvent<HTMLInputElement>) =>
