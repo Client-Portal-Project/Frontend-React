@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {NextPage} from "next";
 import Head from "next/head";
-import Link from "next/Link";
+import Link from "next/link";
 import styles from "../../styles/pages/Home.module.scss";
 import companyStyles from "../../styles/register/Company.module.scss";
 
