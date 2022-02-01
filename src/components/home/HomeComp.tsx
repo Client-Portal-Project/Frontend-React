@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-const GeneralCard: FunctionComponent = () => {
+const HomeComp: FunctionComponent = () => {
   return (
     <div>
       <p>hello!</p>
@@ -8,4 +8,4 @@ const GeneralCard: FunctionComponent = () => {
   );
 };
 
-export default GeneralCard;
+export default HomeComp;

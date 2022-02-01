@@ -26,7 +26,7 @@ const Login: NextPage = () => {
   }
 
   const onError = () => {
-    if (error != true)
+    if (!error)
     {
       setError(true);
 
@@ -48,7 +48,7 @@ const Login: NextPage = () => {
       .then((response) => {
           console.log(response);
           setDisableButton(false);    
-      }, (error) => {
+      }, (errors) => {
 
           setDisableButton(false);    
           setErrorMessage("There's a server Error. Please report this and try again later! ");

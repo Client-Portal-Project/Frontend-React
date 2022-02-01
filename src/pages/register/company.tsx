@@ -15,10 +15,11 @@ const Company : NextPage = () => {
     const [password, setPassword] = useState("");
     const [pageError, setPageError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-
-    const register = (e:any) =>
+  
+    const submitApplication = () =>
     {
-      
+      setErrorMessage("not implemented yet!");
+      setPageError(true);
     }
 
     const onCompanyNameChange = (e:React.ChangeEvent<HTMLInputElement>) =>
@@ -83,22 +84,22 @@ const Company : NextPage = () => {
                         </div>
                         <div className={companyStyles.form}>
                             <div><b>Company Name:</b></div>
-                            <div><input type="text" onChange={onCompanyNameChange} /></div>
+                            <div><input type="text" onChange={onCompanyNameChange } value={companyName} /></div>
                             <div><b>E-Mail:</b></div>
-                            <div><input type="text" onChange={onEmailChange}/></div>
+                            <div><input type="text" onChange={onEmailChange} value={email}/></div>
                             <div><b>Firstname:</b></div>
-                            <div><input type="text" onChange={onFirstNameChange}/></div>
+                            <div><input type="text" onChange={onFirstNameChange} value={firstname}/></div>
                             <div><b>Lastname:</b></div>
-                            <div><input type="text" onChange={onLastNameChange} /></div>
+                            <div><input type="text" onChange={onLastNameChange} value={lastname}/></div>
                             <div><b>Password:</b></div>
-                            <div><input type="password" onChange={onPasswordChange} /></div>
+                            <div><input type="password" onChange={onPasswordChange} value={password}/></div>
                         </div>
                     </div>
                     <div className={companyStyles.registerItem3}>
                         <div className={companyStyles.butons}>
                             <div className={companyStyles.button1}>
                                 <Link href="#" >
-                                    <a className="btn rvtr-btn-secondary btn-lg" role="button" onClick={register}>
+                                    <a className="btn rvtr-btn-secondary btn-lg" role="button" onClick={submitApplication}>
                                         Register
                                     </a>
                                 </Link>

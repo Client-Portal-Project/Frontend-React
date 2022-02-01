@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../../styles/pages/Home.module.scss";
 import registerStyles from "../../styles/register/Register.module.scss";
 import { useRouter } from "next/router";
