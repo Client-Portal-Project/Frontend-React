@@ -38,7 +38,7 @@ const Navbar: React.FunctionComponent = () => {
             </li>
           </ul>
 
-          <a href="/login/login" className="btn rvtr-btn-primary">Login</a>
+          <a href="/api/auth/login" className="btn rvtr-btn-primary">Login</a>
         </div>
       </div>
     </nav>
