@@ -62,6 +62,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
     npm install
   ```
 
+- Create the file `.env.local` in the root directory of the project with the following environment variables:
+
+  ```
+  AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'
+  AUTH0_BASE_URL='http://localhost:3000'
+  AUTH0_ISSUER_BASE_URL=''
+  AUTH0_CLIENT_ID=''
+  AUTH0_CLIENT_SECRET=''
+  ```
+
+  All required variables can be found under Application Settings in your [Auth0 dashboard](https://manage.auth0.com/).
+
+  Further documentation on setting up Auth0 for your deployment of Next.js can be found [here](https://auth0.com/docs/quickstart/webapp/nextjs).
+
 - Run code for testing.
 
   ```bash
@@ -69,20 +83,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
     # or
     yarn dev
   ```
-
-Create the file `.env.local` in the root directory of the project with the following environment variables:
-
-```
-AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'
-AUTH0_BASE_URL='http://localhost:3000'
-AUTH0_ISSUER_BASE_URL=''
-AUTH0_CLIENT_ID=''
-AUTH0_CLIENT_SECRET=''
-```
-
-All required variables can be found under Application Settings in your [Auth0 dashboard](https://manage.auth0.com/).
-
-Further documentation on setting up Auth0 for your deployment of Next.js can be found [here](https://auth0.com/docs/quickstart/webapp/nextjs).
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
