@@ -39,7 +39,8 @@ const Navbar: React.FunctionComponent = () => {
               </Link>
             </li>
           </ul>
-          <LoginLogoutButtons />
+
+          <a href="/login/login" className="btn rvtr-btn-primary">Login</a>
         </div>
       </div>
     </nav>

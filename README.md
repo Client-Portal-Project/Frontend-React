@@ -47,37 +47,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-- First, run the development server located [here](https://github.com/Client-Portal-Project/Backend-.NET)
+- First, run the development server located [here](https://github.com/RVTR-StagingRemote/Staging-Project-Back-End.git)
 
 - Then, clone this repository to your local machine (or server).
-
   ```bash
-    git clone https://github.com/Client-Portal-Project/Frontend-React.git path/to/dir
-    cd path/to/dir
+    $ git clone https://github.com/RVTR-StagingRemote/Staging-Project-Front-End.git path/to/dir
+    $ cd path/to/dir
   ```
-
 - Install necessary packages.
-
   ```bash
     npm install
   ```
-
-- Create the file `.env.local` in the root directory of the project with the following environment variables:
-
-  ```
-  AUTH0_SECRET='use [openssl rand -hex 32] to generate a 32 bytes value'
-  AUTH0_BASE_URL='http://localhost:3000'
-  AUTH0_ISSUER_BASE_URL=''
-  AUTH0_CLIENT_ID=''
-  AUTH0_CLIENT_SECRET=''
-  ```
-
-  All required variables can be found under Application Settings in your [Auth0 dashboard](https://manage.auth0.com/).
-
-  Further documentation on setting up Auth0 for your deployment of Next.js can be found [here](https://auth0.com/docs/quickstart/webapp/nextjs).
-
 - Run code for testing.
-
   ```bash
     npm run dev
     # or
