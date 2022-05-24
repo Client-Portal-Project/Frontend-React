@@ -1,7 +1,5 @@
 import Link from "next/link";
 import styles from "../../../styles/layout/Navbar.module.scss";
-import { useUser } from "@auth0/nextjs-auth0";
-import LoginLogoutButtons from "../elements/LoginLogoutButtons";
 
 const Navbar: React.FunctionComponent = () => {
   return (
