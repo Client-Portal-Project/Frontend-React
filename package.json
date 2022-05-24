@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "next-dev": "next dev",
     "build": "next build",
+    "dev": "next build && next dev",
     "start": "next start",
     "test:jest": "jest /src/ --coverage --collectCoverageFrom='./src/**' --coverageDirectory='coverage'",
     "generate-docs": "typedoc",
